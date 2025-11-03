@@ -7,6 +7,7 @@ node_modules/
 .env.local
 .env.development.local
 .env.test.local
+.env.production
 .env.production.local
 
 # Logs
@@ -83,4 +84,10 @@ doc-intermediaires/
 doc-intermédiaires/
 
 # Charte graphique (non publiée)
-charte-graphique/ 
+charte-graphique/
+
+# Scripts de déploiement (contiennent des IPs/domaines de production)
+scripts/
+
+# Documentation HTML
+docs/*.html 
