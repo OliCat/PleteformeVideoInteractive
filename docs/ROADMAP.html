@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROADMAP - Plateforme Vidéo Interactive</title>
+    <style>
+        @font-face {
+            font-family: 'Ginka';
+            src: url('fonts/Ginka-Regular.woff2') format('woff2'),
+                 url('fonts/Ginka-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Ginka';
+            src: url('fonts/Ginka-Bold.woff2') format('woff2'),
+                 url('fonts/Ginka-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 70px;
+            line-height: 70px;
+            color: #E9473C;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 56px;
+            color: #E9473C;
+            margin: 40px 0 20px 0;
+        }
+
+        h3 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 40px;
+            /*color: #2D74BA;*/
+            margin: 30px 0 15px 0;
+        }
+
+        h4 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 30px;
+            color: #69BD93;
+            margin: 25px 0 10px 0;
+        }
+
+        h5 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            color: #F2BE69;
+            margin: 20px 0 10px 0;
+        }
+
+        h6 {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 24px;
+            color: #333;
+            margin: 15px 0 8px 0;
+        }
+
+        p {
+            font-family: 'Ginka', Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 16px;
+        }
+
+        .header-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .version-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .version-badge {
+            background-color: #69BD93;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .date-badge {
+            background-color: #2D74BA;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .section.blue {
+            background-color: #2D74BA;
+            color: white;
+        }
+
+        .section.green {
+            background-color: #69BD93;
+            color: white;
+        }
+
+        .section.yellow {
+            background-color: #F2BE69;
+            color: #333;
+        }
+
+        .section.red {
+            background-color: #E9473C;
+            color: white;
+        }
+
+        .section h2, .section h3, .section h4 {
+            color: inherit;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .overview-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            color: inherit;
+        }
+
+        .status-complete {
+            color: #69BD93;
+            font-weight: 700;
+        }
+
+        .status-planned {
+            color: #F2BE69;
+            font-weight: 700;
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 24px;
+        }
+
+        .task-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .task-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+
+        .task-list li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #F2BE69;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .task-list li.completed:before {
+            content: "✓";
+            color: #69BD93;
+        }
+
+        .priority {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .priority.high {
+            background-color: #E9473C;
+            color: white;
+        }
+
+        .priority.medium {
+            background-color: #F2BE69;
+            color: #333;
+        }
+
+        .priority.low {
+            background-color: #69BD93;
+            color: white;
+        }
+
+        .version-card {
+            background-color: white;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .version-header {
+            padding: 25px;
+            color: white;
+            position: relative;
+        }
+
+        .version-header.v1-1 { background-color: #2D74BA; }
+        .version-header.v1-2 { background-color: #69BD93; }
+        .version-header.v1-3 { background-color: #F2BE69; color: #333; }
+        .version-header.v2-0 { background-color: #E9473C; }
+        .version-header.v2-1 { background-color: #8e44ad; }
+        .version-header.v2-2 { background-color: #e74c3c; }
+        .version-header.v2-3 { background-color: #3498db; }
+        .version-header.v3-0 { background-color: #2c3e50; }
+
+        .version-content {
+            padding: 25px;
+        }
+
+        .timeline {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .criteria-card {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .criteria-card.high {
+            background-color: #ffebee;
+        }
+
+        .criteria-card.medium {
+            background-color: #fff8e1;
+        }
+
+        .criteria-card.low {
+            background-color: #e8f5e8;
+        }
+
+        .process-flow {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #E9473C;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .note-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 50px;
+                line-height: 50px;
+            }
+            
+            h2 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+            
+            h3 {
+                font-size: 30px;
+                line-height: 30px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .overview-grid,
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .version-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ROADMAP - Plateforme Vidéo Interactive</h1>
+        
+        <div class="header-info">
+            <div class="version-info">
+                <span class="version-badge">Version actuelle : V1.0 (Production)</span>
+                <span class="date-badge">Dernière mise à jour : Novembre 2025</span>
+            </div>
+            <p>Ce document présente le plan d'amélioration et les évolutions prévues pour les prochaines versions de la plateforme.</p>
+        </div>
+
+        <div class="section blue">
+            <h2>Vue d'ensemble</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>État actuel (V1.0)</h3>
+                    <ul class="task-list">
+                        <li class="completed"><strong>Fonctionnalités de base</strong> : Authentification, gestion vidéo, quiz, progression</li>
+                        <li class="completed"><strong>Interface utilisateur</strong> : Dashboard, parcours, lecteur vidéo</li>
+                        <li class="completed"><strong>Interface administration</strong> : Gestion complète des ressources</li>
+                        <li class="completed"><strong>Infrastructure</strong> : API REST, Nginx, MongoDB, déploiement automatisé</li>
+                    </ul>
+                </div>
+                
+                <div class="overview-card">
+                    <h3>Objectifs futurs</h3>
+                    <ul class="task-list">
+                        <li><strong>Amélioration du streaming</strong> : HLS adaptatif, meilleure expérience vidéo</li>
+                        <li><strong>Expérience utilisateur</strong> : PWA, notifications, fonctionnalités sociales</li>
+                        <li><strong>Analytics avancés</strong> : Tableaux de bord détaillés, rapports</li>
+                        <li><strong>Sécurité renforcée</strong> : URLs signées, protection avancée</li>
+                        <li><strong>Performance</strong> : Optimisations, cache, CDN</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>Versions prévues</h2>
+
+        <div class="version-card">
+            <div class="version-header v1-1">
+                <h3>V1.1 - Améliorations et corrections <span class="timeline">Q1 2026</span></h3>
+                <span class="priority high">Priorité Haute</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Stabilisation, corrections de bugs, améliorations mineures</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li>Correction des bugs critiques identifiés en production</li>
+                    <li>Amélioration de la gestion des erreurs et messages utilisateur</li>
+                    <li>Optimisation des performances (chargement, requêtes DB)</li>
+                    <li>Amélioration de l'interface utilisateur (UX/UI)</li>
+                    <li>Tests automatisés (unitaires et intégration)</li>
+                    <li>Documentation technique complète (API, architecture)</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Optimisation des requêtes MongoDB (aggregation pipelines)</li>
+                    <li>Cache Redis pour les données fréquemment consultées</li>
+                    <li>Amélioration du logging et monitoring</li>
+                    <li>Gestion d'erreurs plus robuste</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v1-2">
+                <h3>V1.2 - Streaming et vidéo améliorés <span class="timeline">Q2 2026</span></h3>
+                <span class="priority medium">Priorité Moyenne-Haute</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Améliorer significativement l'expérience de lecture vidéo</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Streaming HLS adaptatif</strong> : Mise en place du streaming HLS complet</li>
+                    <li><strong>Lecteur vidéo amélioré</strong> : Contrôles avancés, hotkeys, chapitres</li>
+                    <li><strong>Gestion vidéo avancée</strong> : Upload par batch, reprocessing, validation</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Queue de traitement vidéo (Bull/BullMQ ou similaire)</li>
+                    <li>Worker séparé pour le transcodage</li>
+                    <li>Monitoring du processus de transcodage</li>
+                    <li>Nettoyage automatique des fichiers temporaires</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v1-3">
+                <h3>V1.3 - Notifications et engagement <span class="timeline">Q2-Q3 2026</span></h3>
+                <span class="priority medium">Priorité Moyenne</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Améliorer l'engagement utilisateur via les notifications</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Système de notifications</strong> : Email, push navigateur, centre de notifications</li>
+                    <li><strong>Rappels automatiques</strong> : Inactivité, quiz non complétés, nouveau contenu</li>
+                    <li><strong>Gamification</strong> : Badges, classements, points XP, défis</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Service de notifications (email via Nodemailer/SendGrid)</li>
+                    <li>Service de push notifications (Web Push API)</li>
+                    <li>Queue de notifications asynchrones</li>
+                    <li>Templates d'emails personnalisables</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v2-0">
+                <h3>V2.0 - Analytics et tableaux de bord avancés <span class="timeline">Q3-Q4 2026</span></h3>
+                <span class="priority medium">Priorité Moyenne</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Fournir des insights détaillés pour les administrateurs</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Tableau de bord analytics avancé</strong> : Graphiques, taux de completion, temps moyen</li>
+                    <li><strong>Rapports détaillés</strong> : Par utilisateur, par vidéo/quiz, exports</li>
+                    <li><strong>Statistiques temps réel</strong> : Utilisateurs actifs, contenus populaires</li>
+                    <li><strong>Recommandations intelligentes</strong> : Suggestions basées sur la progression</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Service d'analytics dédié</li>
+                    <li>Agrégation de données MongoDB</li>
+                    <li>Visualisation avec Chart.js ou D3.js</li>
+                    <li>Génération de rapports PDF (Puppeteer)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v2-1">
+                <h3>V2.1 - Sécurité renforcée <span class="timeline">Q4 2026</span></h3>
+                <span class="priority high">Priorité Haute (sécurité)</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Renforcer la sécurité de la plateforme</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>URLs signées pour les vidéos</strong> : URLs temporaires, expiration automatique</li>
+                    <li><strong>Authentification avancée</strong> : 2FA, SSO optionnel, gestion sessions</li>
+                    <li><strong>Audit et traçabilité</strong> : Journalisation détaillée, logs de sécurité</li>
+                    <li><strong>Conformité</strong> : RGPD, cookies, politique de confidentialité</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Bibliothèque de signature d'URLs (JWT ou HMAC)</li>
+                    <li>Middleware d'audit</li>
+                    <li>Système de logging structuré</li>
+                    <li>Gestion des secrets (HashiCorp Vault ou similaire)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v2-2">
+                <h3>V2.2 - Application mobile (PWA) <span class="timeline">Q1 2027</span></h3>
+                <span class="priority medium">Priorité Moyenne</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Offrir une expérience native mobile</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Progressive Web App (PWA)</strong> : Installation, mode hors-ligne, synchronisation</li>
+                    <li><strong>Optimisation mobile</strong> : Interface mobile-first, gestes tactiles</li>
+                    <li><strong>Fonctionnalités mobiles</strong> : Download vidéos, synchronisation progression</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Service Worker pour PWA</li>
+                    <li>Manifest.json complet</li>
+                    <li>Cache stratégique des assets</li>
+                    <li>Optimisation des images pour mobile</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v2-3">
+                <h3>V2.3 - Fonctionnalités sociales <span class="timeline">Q2 2027</span></h3>
+                <span class="priority low">Priorité Basse (optionnel)</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Ajouter une dimension collaborative à la plateforme</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Commentaires et discussions</strong> : Commentaires vidéos, discussions quiz</li>
+                    <li><strong>Partage et collaboration</strong> : Partage résultats, groupes d'étudiants</li>
+                    <li><strong>Communauté</strong> : Forum, Q&A, mentorat</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Système de commentaires (modèle DB dédié)</li>
+                    <li>Real-time avec WebSockets (Socket.io)</li>
+                    <li>Modération automatisée (optionnel)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <div class="version-header v3-0">
+                <h3>V3.0 - Réarchitecture et scaling <span class="timeline">Q3-Q4 2027</span></h3>
+                <span class="priority medium">Priorité Moyenne (selon croissance)</span>
+            </div>
+            <div class="version-content">
+                <p><strong>Objectif</strong> : Préparer la plateforme pour une montée en charge</p>
+                
+                <h4>Fonctionnalités</h4>
+                <ul class="task-list">
+                    <li><strong>Microservices</strong> : Séparation des services, scaling indépendant</li>
+                    <li><strong>Infrastructure cloud</strong> : Kubernetes, load balancing, CDN</li>
+                    <li><strong>Base de données distribuée</strong> : Réplication MongoDB, backup multi-régions</li>
+                    <li><strong>Monitoring avancé</strong> : APM, logs centralisés, métriques temps réel</li>
+                </ul>
+                
+                <h4>Améliorations techniques</h4>
+                <ul class="task-list">
+                    <li>Refactoring vers architecture microservices</li>
+                    <li>Containerisation (Docker)</li>
+                    <li>Orchestration (Kubernetes)</li>
+                    <li>CI/CD automatisé</li>
+                    <li>Tests de charge et performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section yellow">
+            <h2>Critères de priorisation</h2>
+            
+            <div class="criteria-grid">
+                <div class="criteria-card high">
+                    <h4>Priorité Haute</h4>
+                    <ul>
+                        <li><strong>Sécurité</strong> : Vulnérabilités, failles, protection des données</li>
+                        <li><strong>Stabilité</strong> : Bugs critiques, crashes, corruption de données</li>
+                        <li><strong>Performance</strong> : Problèmes de lenteur, timeouts</li>
+                        <li><strong>Conformité</strong> : RGPD, législation</li>
+                    </ul>
+                </div>
+                
+                <div class="criteria-card medium">
+                    <h4>Priorité Moyenne</h4>
+                    <ul>
+                        <li><strong>Expérience utilisateur</strong> : Améliorations UX/UI, nouvelles fonctionnalités</li>
+                        <li><strong>Performance</strong> : Optimisations, cache, requêtes</li>
+                        <li><strong>Analytics</strong> : Tableaux de bord, rapports</li>
+                        <li><strong>Fonctionnalités</strong> : Nouvelles fonctionnalités demandées</li>
+                    </ul>
+                </div>
+                
+                <div class="criteria-card low">
+                    <h4>Priorité Basse</h4>
+                    <ul>
+                        <li><strong>Améliorations optionnelles</strong> : Features nice-to-have</li>
+                        <li><strong>Refactoring</strong> : Code cleanup sans impact fonctionnel</li>
+                        <li><strong>Documentation</strong> : Amélioration de la doc (non critique)</li>
+                        <li><strong>Social</strong> : Fonctionnalités communautaires (optionnel)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section green">
+            <h2>Processus de décision</h2>
+            
+            <h3>Ajout d'une nouvelle fonctionnalité</h3>
+            <div class="process-flow">
+                <div class="process-step"><strong>1. Proposition</strong> : Issue GitHub ou demande utilisateur</div>
+                <div class="process-step"><strong>2. Analyse</strong> : Impact, complexité, dépendances</div>
+                <div class="process-step"><strong>3. Priorisation</strong> : Selon les critères ci-dessus</div>
+                <div class="process-step"><strong>4. Planification</strong> : Attribution à une version</div>
+                <div class="process-step"><strong>5. Développement</strong> : Implémentation et tests</div>
+                <div class="process-step"><strong>6. Déploiement</strong> : Release et documentation</div>
+            </div>
+            
+            <h3>Modifications de roadmap</h3>
+            <ul>
+                <li><strong>Ajustements</strong> : Selon feedback utilisateurs, besoins métier</li>
+                <li><strong>Délais</strong> : Flexibilité selon contraintes techniques</li>
+                <li><strong>Communication</strong> : Mise à jour de ce document</li>
+            </ul>
+        </div>
+
+        <div class="note-box">
+            <h3>Notes importantes</h3>
+            
+            <h4>Limitations actuelles</h4>
+            <ul>
+                <li><strong>Streaming HLS</strong> : Infrastructure prête mais non activée</li>
+                <li><strong>Scaling</strong> : Architecture monolithique (limites identifiées)</li>
+                <li><strong>Mobile</strong> : Interface responsive mais pas de PWA</li>
+                <li><strong>Analytics</strong> : Statistiques de base, pas d'analytics avancés</li>
+            </ul>
+            
+            <h4>Dépendances techniques</h4>
+            <ul>
+                <li><strong>FFmpeg</strong> : Essentiel pour le transcodage vidéo</li>
+                <li><strong>MongoDB</strong> : Base de données principale</li>
+                <li><strong>Node.js</strong> : Runtime backend</li>
+                <li><strong>React</strong> : Framework frontend</li>
+            </ul>
+            
+            <h4>Contraintes</h4>
+            <ul>
+                <li><strong>Budget</strong> : Infrastructure OVH existante</li>
+                <li><strong>Temps</strong> : Développement selon disponibilité</li>
+                <li><strong>Ressources</strong> : Équipe de développement limitée</li>
+            </ul>
+        </div>
+
+<!--         <h2>Contribution</h2>
+        <p>Les suggestions d'amélioration sont les bienvenues :</p>
+        <ul>
+            <li><strong>Issues GitHub</strong> : Pour les bugs et fonctionnalités</li>
+            <li><strong>Discussions</strong> : Pour les propositions et questions</li>
+            <li><strong>Pull Requests</strong> : Pour les contributions de code</li>
+        </ul> -->
+        <h2>version</h2>
+        <ul>
+            <li><strong>Version actuelle</strong> : V1.0 (Production)</li>
+            <li><strong>Dernière mise à jour</strong> : Novembre 2025</li>
+            <li><strong>Prochaine révision</strong> : Q1 2026</li>
+        </ul>
+
+<!--         <div class="header-info" style="margin-top: 40px;">
+            <div class="version-info">
+                <span class="date-badge">Dernière mise à jour : Novembre 2025</span>
+                <span class="version-badge">Prochaine révision : Q1 2026</span>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>

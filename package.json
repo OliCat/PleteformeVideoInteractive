@@ -1,0 +1,34 @@
+{
+  "name": "plateforme-video-interactive",
+  "version": "1.0.0",
+  "description": "Plateforme vidéo interactive avec parcours ludique pour coopérative",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "clean": "rm -rf node_modules backend/node_modules frontend/node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "video",
+    "quiz",
+    "cooperative",
+    "learning",
+    "platform"
+  ],
+  "author": "Cooperative Platform Team",
+  "license": "MIT"
+} 

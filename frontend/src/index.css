@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import de la police Ginka */
+@font-face {
+  font-family: 'Ginka';
+  src: url('./assets/fonts/Ginka-Regular.woff2') format('woff2'),
+       url('./assets/fonts/Ginka-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ginka';
+  src: url('./assets/fonts/Ginka-Bold.woff2') format('woff2'),
+       url('./assets/fonts/Ginka-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: 'Ginka', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Classes typographiques selon la charte */
+.h1-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.h2-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 56px;
+}
+
+.h3-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.h4-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.h5-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.h6-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 24px;
+}
+
+.p-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Classes pour les boutons selon la charte */
+.btn-charte {
+  font-family: 'Ginka', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-charte-primary {
+  background-color: #E9473C;
+  color: white;
+}
+
+.btn-charte-primary:hover {
+  background-color: #d13a30;
+}
+
+.btn-charte-secondary {
+  background-color: #2D74BA;
+  color: white;
+}
+
+.btn-charte-secondary:hover {
+  background-color: #2563a0;
+}
+
+.btn-charte-success {
+  background-color: #69BD93;
+  color: white;
+}
+
+.btn-charte-success:hover {
+  background-color: #5aa57e;
+}
+
+.btn-charte-warning {
+  background-color: #F2BE69;
+  color: white;
+}
+
+.btn-charte-warning:hover {
+  background-color: #e7a94d;
+}
+
+/* Border-radius pour les médias selon la charte */
+.img-charte,
+.video-charte,
+.thumbnail-charte {
+  border-radius: 10px;
+} 
